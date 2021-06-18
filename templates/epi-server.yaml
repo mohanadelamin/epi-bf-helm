@@ -37,7 +37,7 @@ spec:
         - containerPort: 80
         volumeMounts:
           - name: bf-pv
-            mountPath: /mnt
+            mountPath: /data
       volumes:
         - name: bf-pv
           hostPath:
