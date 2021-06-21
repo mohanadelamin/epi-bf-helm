@@ -8,6 +8,7 @@ bf:
   mem_limit: "500Mi"
   cpu_request: 200m
   mem_request: "100Mi"
+  service_type: "ClusterIP"
 
 bf_hpa:
   enabled: true
