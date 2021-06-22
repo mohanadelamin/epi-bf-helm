@@ -17,7 +17,7 @@ bf_hpa:
   mem_averageUtilization: 30
 
 bf_custom_hpa:
-  enabled: true
+  enabled: false
   minReplicas: 1
   maxReplicas: 5
   metricName: "http_requests"

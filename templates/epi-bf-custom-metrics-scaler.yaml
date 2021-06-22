@@ -1,0 +1,51 @@
+{{- if .Values.bf_custom_hpa.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: epi-proxy
+  labels:
+    service-monitor: epi-proxy
+spec:
+  selector:
+    matchLabels:
+      app: epi-proxy
+  endpoints:
+  - port: web
+    interval: 10s
+---
+kind: HorizontalPodAutoscaler
+apiVersion: autoscaling/v2beta1
+metadata:
+  name: epi-bf-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: epi-bf
+  minReplicas: {{ .Values.bf_custom_hpa.minReplicas }}
+  maxReplicas: {{ .Values.bf_custom_hpa.maxReplicas }}
+  metrics:
+  - type: Object
+    object:
+      target:
+        kind: Service
+        name: epi-proxy
+      metricName: {{ .Values.bf_custom_hpa.metricName }}
+      targetValue: {{ .Values.bf_custom_hpa.targetValue }}
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: epi-proxy
+  namespace: default
+  annotations:
+    traefik.frontend.rule.type: PathPrefixStrip
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /epi-proxy
+        backend:
+          serviceName: epi-proxy
+          servicePort: 80
+{{- end }}
