@@ -1,8 +1,8 @@
-{{- if .Values.bf_hpa.cpu_enabled }}
+{{- if .Values.bf_hpa.mem_enabled }}
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: epi-bf-hpa
+  name: epi-bf-hpa-mem
   namespace: epi
 spec:
   scaleTargetRef:
@@ -14,8 +14,8 @@ spec:
   metrics:
   - type: Resource
     resource:
-      name: cpu
+      name: memory
       target:
         type: Utilization
-        averageUtilization: {{ .Values.bf_hpa.cpu_averageUtilization }}
+        averageUtilization: {{ .Values.bf_hpa.mem_averageUtilization }}
 {{- end }}

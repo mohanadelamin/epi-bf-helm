@@ -10,7 +10,8 @@ bf:
   mem_request: "100Mi"
 
 bf_hpa:
-  enabled: true
+  cpu_enabled: true
+  mem_enabled: false
   minReplicas: 1
   maxReplicas: 5
   cpu_averageUtilization: 30

@@ -3,9 +3,9 @@ entries:
   epi_bf_helm:
   - apiVersion: v2
     appVersion: 1.16.5
-    created: "2021-06-22T13:33:28.866914+01:00"
+    created: "2021-06-26T15:36:29.662+02:00"
     description: Helm chart to deploy PoC setup for EPI Briding function autoscaling.
-    digest: bcca4236b8bbeb420220401e59bf1ad3ee379236ddf7bc1bf1500f64359223c0
+    digest: d1438ba8a682f7d8025a71fb5bd8cddc5f68495e1178d86d1b9207cd140b2ffc
     home: https://github.com/mohanadelamin/rp2-epif
     maintainers:
     - email: melamin@os3.nl
@@ -17,4 +17,4 @@ entries:
     urls:
     - https://mohanadelamin.github.io/epi-bf-helm/epi_bf_helm-0.1.5.tgz
     version: 0.1.5
-generated: "2021-06-22T13:33:28.864615+01:00"
+generated: "2021-06-26T15:36:29.661341+02:00"
