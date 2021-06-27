@@ -1,7 +1,5 @@
 # epi-bf-helm
 
-# epi-bf-helm
-
 A chart to deploy the required nodes for testing Bridging function scaling for the EPI Framework.
 
 The chart will deploy the following topology (Without the locust load generator)
